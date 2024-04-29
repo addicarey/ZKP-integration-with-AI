@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>ZKP integration Linear Regression</title> 
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+</head>
+<body>
+    <!-- Title and Button for processing AC-->
+    <div class="title">
+    <h1>Encrypted Linear Regression with ZKP</h1>
+    <form action="/process" method="post">
+        <button type="submit">Run Regression</button>
+    </form>
+    <!-- Displays scatterplot produced by AI AC-->
+    {% if plot_url %}
+        <img src="data:image/png;base64,{{ plot_url }}">
+    {% elif error %}
+        <p>{{ error }}</p>
+    {% endif %}
+
+</div>
+
+<div class="data">
+     <!-- Displays encrypted and decrypted data in a table AC-->
+    <h2>Data Overview</h2>
+    <table>
+      <tr>
+        <th>Predicted Salary (Encrypted)</th>
+        <th>Predicted Salary (Decrypted)</th>
+        <th>Test Data Years (Decrypted)</th>
+        <th>Test Data Years (Encrypted)</th>
+      </tr>
+      <!-- Retrieves all values from python file AC-->
+      {% for index in range(predicted_sal_e|length) %}
+      <tr>
+        <td>{{ predicted_sal_e[index] }}</td>
+        <td>{{ predicted_sal[index] }}</td>
+        <td>{{ original_data[index] }}</td>
+        <td>{{ encrypted_data[index] }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+
+  
+</body>
+</html>
