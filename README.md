@@ -1,4 +1,7 @@
 # ZKP-integration-with-AI
+
+*Final Report book available to read*
+
 Training AI models securely has been a huge problem, faces challenges like handling large volumes of sensitive data and implementing strong security measures like encryption, access control, and compliance with regulations. Adversarial attacks, where malicious input can manipulate AI systems, are also a significant concern. These factors make ensuring the privacy and security of AI training data complex and crucial.
 
 During the lockdown I started learning about Artificial Intelligence (AI),  later on I learned about Zero-Knowledge Proofs (ZKPs). AI refers to the development of computer systems that can perform tasks that normally require human intelligence, such as understanding natural language, recognizing patterns and making decisions. 
@@ -9,4 +12,4 @@ I started my project in February 2024. My Project involves developing a method t
 
 Implementing ZKPs into AI in real world scenarios involve extremely advanced encryption and mathematical procedures. For my project, I’ve decided to train a simple Linear Regression model based on the data encrypted with a basic ZKP.  This will be able to demonstrate a secure training on data, at a basic level.
 
-Final Report book available to read
+
