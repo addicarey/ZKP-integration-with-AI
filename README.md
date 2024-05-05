@@ -1,6 +1,8 @@
 # ZKP-integration-with-AI
 
-*Final Report book available to read*
+**Final Report book available to read**
+
+# Abstract
 
 Training AI models securely has been a huge problem, faces challenges like handling large volumes of sensitive data and implementing strong security measures like encryption, access control, and compliance with regulations. Adversarial attacks, where malicious input can manipulate AI systems, are also a significant concern. These factors make ensuring the privacy and security of AI training data complex and crucial.
 
