@@ -1,17 +1,16 @@
-# ZKP-integration-with-AI
+# Enhancing Data Security in AI Training using Zero-Knowledge Proofs for Secure Methodology Development - SciFest National Final 2024 Project
 
 **Final Report book available to read**
 
 # Abstract
 
-Training AI models securely has been a huge problem, faces challenges like handling large volumes of sensitive data and implementing strong security measures like encryption, access control, and compliance with regulations. Adversarial attacks, where malicious input can manipulate AI systems, are also a significant concern. These factors make ensuring the privacy and security of AI training data complex and crucial.
+Ensuring the security and privacy of sensitive data during AI and machine learning model training has become a critical challenge. Training AI models on datasets containing financial, medical, or other regulated information requires robust encryption methods and strict adherence to privacy regulations. As AI becomes increasingly integrated into essential services, the need for secure data-handling methodologies is more urgent than ever. 
 
-During the lockdown I started learning about Artificial Intelligence (AI),  later on I learned about Zero-Knowledge Proofs (ZKPs). AI refers to the development of computer systems that can perform tasks that normally require human intelligence, such as understanding natural language, recognizing patterns and making decisions. 
+My project aims to address these concerns by integrating Zero-Knowledge Proofs (ZKPs) into the AI training process. ZKPs are cryptographic protocols that allow one party to prove possession of certain information to another party without revealing the information itself. By applying ZKPs, I aim to develop an algorithm that enables AI models to process encrypted data without exposing the raw data. This approach minimizes data exposure risks, ensuring privacy while maintaining model performance. 
 
-ZKPs are cryptographic protocols that enable one party (the prover) to prove to another (the verifier) that they possess certain knowledge without revealing the actual knowledge itself. This concept allows for authentication and verification without disclosing sensitive information. 
+I started this project in February 2024 and developed a basic ZKP algorithm that encrypts input data, which is then used through a simple linear regression model. My project also incorporates data visualization through a Flask-based interface. While my current model uses a small dataset and basic encryption, I am planning to scale to larger datasets and refining the algorithm using stronger encryption and cryptographic hash functions to enhance the zero-knowledge aspect further. 
 
-I started my project in February 2024. My Project involves developing a method to implement ZKPs into AI to ensure a secure way of training sensitive data. The goal is to develop an algorithm to encrypt the data utilising zero-knowledge protocol, which will allow AI models access to the data without disclosure of the raw data. 
+While ZKPs can be difficult to integrate into the world of AI, I believe my project demonstrates a novel application of ZKPs in AI, offering a potential solution to one of the biggest challenges in secure AI model training.
 
-Implementing ZKPs into AI in real world scenarios involve extremely advanced encryption and mathematical procedures. For my project, I’ve decided to train a simple Linear Regression model based on the data encrypted with a basic ZKP.  This will be able to demonstrate a secure training on data, at a basic level.
 
 
