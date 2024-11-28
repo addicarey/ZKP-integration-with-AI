@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>ZKP integration Linear Regression</title> 
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+</head>
+<body>
+    <!-- Title and Button for processing AC-->
+    <div class="title">
+    <h1>Zero-Knowledge Proof integration with AI</h1>
+    <form action="/process" method="post">
+        <button type="submit">Run Regression</button>
+    </form>
+    <!-- Displays scatterplot produced by AI AC-->
+    {% if plot_url %}
+        <img src="data:image/png;base64,{{ plot_url }}">
+    {% elif error %}
+        <p>{{ error }}</p>
+    {% endif %}
+    <br />
+    <div class="zkp-status">
+      {% if error %}
+          <p style="color: red;"><strong>ZKP Status:</strong> {{ error }}</p>
+      {% elif plot_url %}
+          <p style="color: green;"><strong>ZKP Status:</strong> Verification Succeeded!</p>
+      {% else %}
+          <p><strong>ZKP Status:</strong></p>
+      {% endif %}
+    </div>
+  
+</div>
+
+<div class="zkp-info">
+  <h2>Zero-Knowledge Proof (ZKP) Commitments</h2>
+  <p><strong>Commitment for X:</strong> {{ commitment_X if commitment_X else "Not Available" }}</p>
+  <p><strong>Commitment for y:</strong> {{ commitment_y if commitment_y else "Not Available" }}</p>
+  <p><strong>Salt Used:</strong> {{ salt if salt else "Not Available" }}</p>
+  <br />
+  <br />
+  <h2>Data Encryption and Decryption Process</h2>
+  <p><strong>Encryption Formula:</strong> (Value * Scale Factor) + Offset</p>
+  <p><strong>Decryption Formula:</strong> (Encrypted Value - Offset) / Scale Factor</p>
+  <p><strong>Scale Factor:</strong> {{ scale_factor }}</p>
+  <p><strong>Offset:</strong> {{ offset }}</p>
+
+  {% if error %}
+  <p style="color: red;">{{ error }}</p>
+  {% endif %}
+</div>
+
+
+
+<!--
+<div class="metrics">
+  <h2>Model Evaluation Metrics</h2>
+  <table>
+      <tr>
+          <th>Performance Metric</th>
+          <th>Encrypted Model</th>
+          <th>Original Model</th>
+      </tr>
+      <tr>
+          <td>Mean Absolute Error (MAE)</td>
+          <td>{{ mae_encrypted }}</td>
+          <td>{{ mae_original }}</td>
+      </tr>
+      <tr>
+          <td>Mean Absolute Percentage Error (MAPE)</td>
+          <td>{{ mape_encrypted }}</td>
+          <td>{{ mape_original }}</td>
+      </tr>
+      <tr>
+          <td>Root Mean Squared Error (RMSE)</td>
+          <td>{{ rmse_encrypted }}</td>
+          <td>{{ rmse_original }}</td>
+      </tr>
+      <tr>
+          <td>Mean Squared Error (MSE)</td>
+          <td>{{ mse_encrypted }}</td>
+          <td>{{ mse_original }}</td>
+      </tr>
+      <tr>
+          <td>R2 Score</td>
+          <td>{{ r2_encrypted }}</td>
+          <td>{{ r2_original }}</td>
+      </tr>
+  </table>
+</div>
+-->
+<div class="metrics">
+  <h2>Model Performance Metrics</h2>
+    <table>
+        <tr>
+            <th>Metric</th>
+            <th>Encrypted Model</th>
+            <th>Original Model</th>
+        </tr>
+        <tr>
+            <td>MSE</td>
+            <td>{{ mse_encrypted }}</td>
+            <td>{{ mse_original }}</td>
+        </tr>
+        <tr>
+            <td>MAE</td>
+            <td>{{ mae_encrypted }}</td>
+            <td>{{ mae_original }}</td>
+        </tr>
+        <tr>
+            <td>RMSE</td>
+            <td>{{ rmse_encrypted }}</td>
+            <td>{{ rmse_original }}</td>
+        </tr>
+        <tr>
+            <td>R²</td>
+            <td>{{ r2_encrypted }}</td>
+            <td>{{ r2_original }}</td>
+        </tr>
+        <tr>
+          <td>MAPE</td>
+          <td>{{ mape_encrypted }}</td>
+          <td>{{ mape_original }}</td>
+      </tr>
+    </table>
+    <br />
+    <br />
+    <div class="metrics-chart">
+      <img src="data:image/png;base64,{{ metrics_plot_url }}" alt="Model Metrics Comparison">
+    </div>
+</div>
+
+
+<br />
+<br />
+
+<div class="data">
+  <h2>Data Overview</h2>
+  <table>
+      <tr>
+          <th>Test Data Years (Decrypted)</th>
+          <th>Predicted Salary (Decrypted)</th>
+          <th>Test Data Years (Encrypted)</th>
+          <th>Predicted Salary (Encrypted)</th>
+      </tr>
+      <!-- Dynamically populate table rows using Jinja -->
+      {% for index in range(original_data|length) %}
+      <tr>
+          <td>{{ original_data[index] }}</td>
+          <td>{{ predicted_sal[index] }}</td>
+          <td>{{ encrypted_data[index] }}</td>
+          <td>{{ predicted_sal_e[index] }}</td>
+      </tr>
+      {% endfor %}
+  </table>
+</div>
+
+
+  
+</body>
+</html>
