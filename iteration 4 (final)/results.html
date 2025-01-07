@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #1a263f;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+        main {
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #1a263f;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f1f1f1;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #555;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f7ff;
+        }
+        .status-passed {
+            color: green;
+            font-weight: bold;
+        }
+        .status-failed {
+            color: red;
+            font-weight: bold;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #888;
+        }
+        .info {
+            color: #1a263f;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        ZKP Test Results 
+    </header>
+    <main>
+        <h1>ZKP Unit Test Results</h1>
+        <div class="info">Below are the results of the executed unit tests..</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Run ID</th>
+                    <th>Test Name</th>
+                    <th>Input X</th>
+                    <th>Input y</th>
+                    <th>X Error</th>
+                    <th>Y Error</th>
+                    <th>Execution Time (s)</th>
+                    <th>Expected Output</th>
+                    <th>Success</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for result in test_results %}
+                <tr>
+                    <td>{{ result['Run ID'] }}</td>
+                    <td>{{ result['Test Name'] }}</td>
+                    <td>{{ result['Input X'] }}</td>
+                    <td>{{ result['Input y'] }}</td>
+                    <td>{{ result['X Error'] }}</td>
+                    <td>{{ result['Y Error'] }}</td>
+                    <td>{{ result['Execution Time (s)'] }}</td>
+                    <td>{{ result['Expected Output'] }}</td>
+                    <td>{{ 'Yes' if result['Success'] else 'No' }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        
+        
+    </main>
+    <footer>
+        
+    </footer>
+</body>
+</html>
